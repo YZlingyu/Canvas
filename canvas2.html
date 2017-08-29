@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基本图形</title>
+	</head>
+	<body onload="draw();">
+		<canvas id="canvas" width="150" height="150"></canvas>
+	</body>
+	<script>
+		function draw(){
+			var canvas = document.getElementById("canvas");
+			if(canvas.getContext){
+				var ctx = canvas.getContext('2d');
+				
+				ctx.beginPath();
+			    ctx.moveTo(75,50);
+			    ctx.lineTo(100,75);
+			    ctx.lineTo(100,25);
+			    ctx.arc(75,75,50,0,Math.PI*2,true); // 绘制
+				ctx.moveTo(110,75);
+				ctx.arc(75,75,35,0,Math.PI,false);   // 口(顺时针)
+				ctx.moveTo(65,65);
+				ctx.arc(60,65,5,0,Math.PI*2,true);  // 左眼
+				ctx.moveTo(95,65);
+				ctx.arc(90,65,5,0,Math.PI*2,true); 
+			    ctx.fill();
+			    
+			    //beginPath()：新建一条路径，生成后，图形绘制命令被指向到路径上生成路径
+			    //closePath()：闭合路径之后图形命令有重新指向到上下文
+			    //stroke()：通过线条来绘制图形轮廓
+			    //fill()：通过填充路径的内容区域生成实心的图形
+			    //moveTo：绘制不连续的图
+			    //lineTo：绘制一条从当前位置到指定位置的想、以及y的直线
+			    //arc(x, y, radius, startAngle, endAngle, anticlockwise)：画一个圆
+			    //arc()函数中的角度单位是弧度，不是度数。角度与弧度的js表达式:radians=(Math.PI/180)*degrees。
+			}
+		}
+	</script>
+	<style type="text/css">
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+</html>
